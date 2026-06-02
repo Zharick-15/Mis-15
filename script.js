@@ -111,9 +111,6 @@ document.body.style.overflow = 'hidden';
   const audio = document.getElementById('bg-audio');
   let playing = false;
 
-  // Set audio source from Google Drive
-  audio.src = 'https://drive.google.com/uc?export=download&id=1SmMut6c_Gh-gQQAxciK878tShyhoIdPT';
-
   btn.addEventListener('click', () => {
     if (!audio.src || audio.src === window.location.href) {
       // No audio source set — show hint
