@@ -5,6 +5,15 @@ function openInvitation() {
     env.style.display = 'none';
     document.body.style.overflow = '';
   }, 820);
+
+  // Iniciar música al abrir la invitación (funciona en móvil porque es un gesto del usuario)
+  const audio = document.getElementById('bg-audio');
+  const btn   = document.getElementById('music-btn');
+  if (audio && audio.src) {
+    audio.play().then(() => {
+      btn.textContent = '⏸';
+    }).catch(() => {});
+  }
 }
 // Prevent scroll while envelope is open
 document.body.style.overflow = 'hidden';
