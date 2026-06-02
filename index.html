@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Mis XV Años · Zharick Ortiz</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <canvas id="sparkles-canvas"></canvas>
+
+  <button id="music-btn" aria-label="Reproducir música">🎵</button>
+  <audio id="bg-music" src="" loop></audio>
+
+  <section id="portada">
+    <div class="hero-bg"></div>
+    <div class="content container reveal">
+      <div class="photo-frame">
+        <div class="placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M21 19V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2z"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Tu Foto Aquí</span>
+        </div>
+        <img src="" alt="Zharick Ortiz" id="main-photo" />
+      </div>
+
+      <h2>Mis XV Años</h2>
+      <h1>Zharick</h1>
+      <div class="name">Ortiz</div>
+      <div class="divider"><span class="divider-heart">❤</span></div>
+      <div class="subtitle">¡Estás Invitado!</div>
+
+      <div class="countdown">
+        <div class="countdown-unit"><span class="num" id="cd-d">00</span><span class="lbl">Días</span></div>
+        <div class="countdown-unit"><span class="num" id="cd-h">00</span><span class="lbl">Hrs</span></div>
+        <div class="countdown-unit"><span class="num" id="cd-m">00</span><span class="lbl">Min</span></div>
+        <div class="countdown-unit"><span class="num" id="cd-s">00</span><span class="lbl">Seg</span></div>
+      </div>
+
+      <div class="scroll-hint">
+        <span>Desliza</span>
+        <span class="arrow">↓</span>
+      </div>
+    </div>
+
+    <img src="https://i.ibb.co/6bsXpX7/bouquet-tr.png" class="flower-deco flower-portada-tr" alt="decoracion" />
+    <img src="https://i.ibb.co/6bsXpX7/bouquet-tr.png" class="flower-deco flower-portada-bl" alt="decoracion" />
+  </section>
+
+  <section id="detalles" class="section">
+    <div class="container reveal">
+      <h3>Cuándo y Dónde</h3>
+      <h2>Los Detalles</h2>
+      <div class="divider"><span class="divider-heart">❤</span></div>
+
+      <div class="detail-cards">
+        <div class="detail-card">
+          <span class="icon">📅</span>
+          <div class="lbl">FECHA</div>
+          <div class="val">Sábado, 25 de Octubre</div>
+          <div class="val-sm">2026 · 7:00 PM</div>
+        </div>
+        <div class="detail-card">
+          <span class="icon">✨</span>
+          <div class="lbl">RECEPCIÓN</div>
+          <div class="val">Salón de Eventos</div>
+          <div class="val-sm">Calle Principal #123</div>
+        </div>
+        <div class="detail-card full">
+          <span class="icon">📍</span>
+          <div class="lbl">UBICACIÓN</div>
+          <div class="val">Ciudad de Ejemplo</div>
+          <div class="val-sm">Haz clic abajo para ver el mapa</div>
+        </div>
+      </div>
+
+      <a href="https://maps.google.com" target="_blank" class="btn-map">📍 VER MAPA EN GOOGLE</a>
+    </div>
+    <img src="https://i.ibb.co/6bsXpX7/bouquet-tr.png" class="flower-deco flower-detalles-r" alt="decoracion" />
+  </section>
+
+  <section id="menciones" class="section">
+    <div class="container reveal">
+      <h3>Con la bendición de</h3>
+      <h2>Mis Padres</h2>
+      <div class="divider"><span class="divider-heart">❤</span></div>
+      <div class="menciones-box">
+        <p class="menciones-text">"Gracias a Dios por darme la vida, y a mis padres por su amor y apoyo incondicional en esta hermosa etapa."</p>
+        <div class="menciones-padres">
+          <div class="mencion-padre">
+            <span class="mencion-rol">Madre</span>
+            <span class="mencion-nombre">Nombre de la Madre</span>
+          </div>
+          <span class="mencion-corazon">❤</span>
+          <div class="mencion-padre">
+            <span class="mencion-rol">Padre</span>
+            <span class="mencion-nombre">Nombre del Padre</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img src="https://i.ibb.co/6bsXpX7/bouquet-tr.png" class="flower-deco flower-menciones-tr" alt="decoracion" />
+  </section>
+
+  <section id="galeria">
+    <div class="reveal">
+      <h3>Momentos</h3>
+      <h2>Mi Galería</h2>
+      <div class="divider"><span class="divider-heart">❤</span></div>
+    </div>
+
+    <div class="polaroid-track-wrap reveal">
+      <div class="polaroid-track" id="polaroid-track">
+        <div class="polaroid-slide active">
+          <div class="polaroid-card">
+            <div class="polaroid-img-wrap">
+              <div class="polaroid-ph">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M21 19V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2z"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              </div>
+              <img src="" alt="Foto 1" />
+            </div>
+            <div class="polaroid-num">01 / 35</div>
+          </div>
+        </div>
+        </div>
+
+      <div class="polaroid-hint">
+        <span class="polaroid-hint-icon">↔</span> Desliza para ver más
+      </div>
+
+      <div class="polaroid-dots">
+        <div class="pdot active"></div>
+        </div>
+    </div>
+    <img src="https://i.ibb.co/6bsXpX7/bouquet-tr.png" class="flower-deco flower-galeria-tl" alt="decoracion" />
+  </section>
+
+  <section id="dresscode" class="section">
+    <div class="container reveal">
+      <h3>Cómo Asistir</h3>
+      <h2>Código de Vestimenta</h2>
+      <div class="divider"><span class="divider-heart">❤</span></div>
+
+      <div class="dress-box">
+        <div class="code-name">FORMAL</div>
+        <div class="dress-swatches">
+          <div class="swatch" style="background: #5a3040;"></div>
+          <div class="swatch" style="background: #C47A5A;"></div>
+          <div class="swatch" style="background: #fff8fc;"></div>
+        </div>
+        <p class="dress-note">Nos encantaría verte lucir espectacular. Rogamos evitar vestimenta de color blanco.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container reveal">
+      <div class="lluvia-box">
+        <div class="lluvia-icon">✉</div>
+        <h2 class="lluvia-title">Lluvia de Sobres</h2>
+        <div class="divider"><span class="divider-heart">❤</span></div>
+        <p class="lluvia-text">Es la tradición de depositar tu regalo en dinero en un sobre el día del evento. Tu presencia es nuestro mejor regalo, pero si deseas tener un detalle conmigo, puedes dejarlo aquí.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="regalos" class="section">
+    <div class="container reveal">
+      <h3>Si deseas realizar una</h3>
+      <h2>Transferencia</h2>
+      <div class="divider"><span class="divider-heart">❤</span></div>
+
+      <div class="regalo-cards">
+        <div class="regalo-card" onclick="copyToClipboard('1234567890', '¡Número de cuenta copiado!')">
+          <span class="icon">🏦</span>
+          <div class="info">
+            <div class="lbl">BANCO</div>
+            <div class="val">Banco Ejemplo</div>
+            <div class="sub">Cuenta: 1234567890</div>
+          </div>
+          <span class="copy-badge">COPIAR</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rsvp" class="section">
+    <div class="container reveal">
+      <h3>¿Contamos contigo?</h3>
+      <h2>Confirmar Asistencia</h2>
+      <div class="divider"><span class="divider-heart">❤</span></div>
+      <p>Por favor, confirma tu asistencia antes del 10 de Octubre para asegurar tu lugar en este día tan especial.</p>
+      <button class="btn-rsvp" id="open-rsvp-btn">📩 CONFIRMAR AQUÍ</button>
+    </div>
+  </section>
+
+  <section id="gracias" class="section">
+    <div class="container reveal">
+      <div class="gracias-photo">
+        <img src="" alt="Zharick final" />
+      </div>
+      <div class="big-quote">¡Te Espero!</div>
+      <div class="sub-quote">"No es un día más, es el comienzo de una hermosa historia que quiero compartir contigo."</div>
+      <div class="signature">Zharick Ortiz</div>
+      <div class="footer-note">© 2026 · HECHO CON AMOR</div>
+    </div>
+    <img src="https://i.ibb.co/6bsXpX7/bouquet-tr.png" class="flower-deco flower-gracias-tl" alt="decoracion" />
+    <img src="https://i.ibb.co/6bsXpX7/bouquet-tr.png" class="flower-deco flower-gracias-br" alt="decoracion" />
+  </section>
+
+  <div id="modal-rsvp">
+    <div class="modal-card">
+      <button class="modal-close" id="close-rsvp-btn">×</button>
+      <h3>Confirmar</h3>
+      <form id="rsvp-form">
+        <div class="form-group">
+          <label>Nombre Completo</label>
+          <input type="text" id="rsvp-name" required />
+        </div>
+        <div class="form-group">
+          <label>¿Asistirás?</label>
+          <select id="rsvp-status" required>
+            <option value="si">Sí, asistiré con gusto</option>
+            <option value="no">No podré asistir</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Pases (Invitados)</label>
+          <select id="rsvp-passes">
+            <option value="1">1 Pase</option>
+            <option value="2">2 Pases</option>
+            <option value="3">3 Pases</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-submit">ENVIAR CONFIRMACIÓN</button>
+      </form>
+      <div class="form-success" id="rsvp-success">
+        <h3>¡Gracias!</h3>
+        <p>Tu respuesta ha sido enviada correctamente.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
