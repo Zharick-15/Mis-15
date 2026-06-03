@@ -165,11 +165,26 @@ document.body.style.overflow = 'hidden';
 (function() {
   const btn   = document.getElementById('music-btn');
   const audio = document.getElementById('bg-audio');
-  
-  // 1. Cambiamos a true porque empezará reproduciéndose sola
-  let playing = true; 
-  // 2. Cambiamos el icono inicial del botón a pausa
-  btn.textContent = '⏸'; 
+  let playing = false;
+  let started = false;
+
+  btn.textContent = '🎵';
+
+  function startAudio() {
+    if (started) return;
+    if (!audio.src || audio.src === window.location.href) return;
+    audio.play().then(() => {
+      playing = true;
+      btn.textContent = '⏸';
+      started = true;
+    }).catch(() => {});
+  }
+
+  // ✅ Se activa en el PRIMER clic del usuario en cualquier parte de la página
+  document.addEventListener('click', startAudio, { once: true });
+
+  // ✅ También se activa cuando el usuario cierra el sobre
+  document.addEventListener('touchstart', startAudio, { once: true });
 
   btn.addEventListener('click', () => {
     if (!audio.src || audio.src === window.location.href) {
@@ -186,16 +201,7 @@ document.body.style.overflow = 'hidden';
       playing = true;
     }
   });
-
-  // 3. RESPALDO: Si el navegador bloquea el autoplay, 
-  // revertimos el botón a "reproducir" para que no se desfase.
-  audio.play().catch(() => {
-    playing = false;
-    btn.textContent = '🎵';
-    console.log("Autoplay bloqueado por el navegador. Esperando interacción del usuario.");
-  });
 })();
-
 
 // ============================================================
 // 4. GALLERY LIGHTBOX
