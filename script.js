@@ -1,3 +1,26 @@
+// ============================================================
+// 0. VIDEO INTRO
+// ============================================================
+(function() {
+  const introEl = document.getElementById('video-intro');
+  const video   = document.getElementById('intro-video');
+  const skipBtn = document.getElementById('skip-intro-btn');
+
+  function endIntro() {
+    introEl.classList.add('hidden');
+    // Re-enable page scroll after fade
+    setTimeout(() => {
+      introEl.style.display = 'none';
+    }, 850);
+  }
+
+  video.addEventListener('ended', endIntro);
+  skipBtn.addEventListener('click', endIntro);
+
+  // Fallback: if video fails to load, skip after 1s
+  video.addEventListener('error', () => setTimeout(endIntro, 1000));
+})();
+
 function openInvitation() {
   const env = document.getElementById('envelope-page');
   env.classList.add('closing');
@@ -5,15 +28,6 @@ function openInvitation() {
     env.style.display = 'none';
     document.body.style.overflow = '';
   }, 820);
-
-  // Iniciar música al abrir la invitación (funciona en móvil porque es un gesto del usuario)
-  const audio = document.getElementById('bg-audio');
-  const btn   = document.getElementById('music-btn');
-  if (audio && audio.src) {
-    audio.play().then(() => {
-      btn.textContent = '⏸';
-    }).catch(() => {});
-  }
 }
 // Prevent scroll while envelope is open
 document.body.style.overflow = 'hidden';
