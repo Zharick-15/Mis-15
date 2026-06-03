@@ -365,7 +365,7 @@ window.addEventListener('load', () => {
   let isDragging = false;
 
   function goTo(n) {
-    current = (n + 35) % 35;
+    current = (n + 28) % 28;
     track.style.transform = `translateX(-${current * 100}%)`;
     slides.forEach((s, i) => s.classList.toggle('active', i === current));
     dots.forEach((d, i) => d.classList.toggle('active', i === current));
