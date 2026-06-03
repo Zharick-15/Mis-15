@@ -1,3 +1,4 @@
+
 // ============================================================
 // 0. VIDEO INTRO
 // ============================================================
@@ -6,30 +7,62 @@
   const video   = document.getElementById('intro-video');
   const skipBtn = document.getElementById('skip-intro-btn');
 
+  // Forzamos el bloqueo de scroll desde el milisegundo uno
+  document.body.style.overflow = 'hidden';
+
   function endIntro() {
+    if (!introEl) return;
+    
+    // Pausamos el video por seguridad (evita que siga sonando o consumiendo datos)
+    if (video) {
+      video.pause();
+    }
+
+    // Añadimos la clase para el desvanecimiento (fade out)
     introEl.classList.add('hidden');
-    // Re-enable page scroll after fade
+    
+    // Esperamos a que termine la animación de CSS para ocultarlo por completo
     setTimeout(() => {
       introEl.style.display = 'none';
+      
+      // IMPORTANTE: Aseguramos que el scroll SIGA bloqueado 
+      // porque ahora el usuario está viendo el sobre cerrado.
+      document.body.style.overflow = 'hidden';
     }, 850);
   }
 
-  video.addEventListener('ended', endIntro);
-  skipBtn.addEventListener('click', endIntro);
+  if (video && skipBtn) {
+    video.addEventListener('ended', endIntro);
+    skipBtn.addEventListener('click', endIntro);
 
-  // Fallback: if video fails to load, skip after 1s
-  video.addEventListener('error', () => setTimeout(endIntro, 1000));
+    // Fallback: si el video falla o no carga en 2.5 segundos, saltar automáticamente
+    video.addEventListener('error', () => setTimeout(endIntro, 1000));
+    
+    // En algunos móviles autoplay falla si no ha cargado rápido, esto asegura el disparo:
+    video.play().catch(() => {
+      // Si el navegador bloquea el autoplay, dejamos que el usuario interactúe o saltamos
+      console.log("Autoplay bloqueado o esperando interacción");
+    });
+  } else {
+    // Si por alguna razón no existen los elementos en el HTML, liberamos la lógica
+    document.body.style.overflow = 'hidden';
+  }
 })();
 
+// ============================================================
+// APERTURA DEL SOBRE (Aparece tras el video)
+// ============================================================
 function openInvitation() {
   const env = document.getElementById('envelope-page');
   env.classList.add('closing');
   setTimeout(() => {
     env.style.display = 'none';
+    // AQUÍ es donde finalmente se le permite al usuario deslizar la pantalla
     document.body.style.overflow = '';
   }, 820);
 }
-// Prevent scroll while envelope is open
+
+// Bloqueo preventivo global mientras el sobre esté activo
 document.body.style.overflow = 'hidden';
 
 /* ============================================================ */
