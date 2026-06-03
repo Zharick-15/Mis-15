@@ -165,11 +165,14 @@ document.body.style.overflow = 'hidden';
 (function() {
   const btn   = document.getElementById('music-btn');
   const audio = document.getElementById('bg-audio');
-  let playing = false;
+  
+  // 1. Cambiamos a true porque empezará reproduciéndose sola
+  let playing = true; 
+  // 2. Cambiamos el icono inicial del botón a pausa
+  btn.textContent = '⏸'; 
 
   btn.addEventListener('click', () => {
     if (!audio.src || audio.src === window.location.href) {
-      // No audio source set — show hint
       showToast('Agrega una URL de audio en el código 🎵');
       return;
     }
@@ -182,6 +185,14 @@ document.body.style.overflow = 'hidden';
       btn.textContent = '⏸';
       playing = true;
     }
+  });
+
+  // 3. RESPALDO: Si el navegador bloquea el autoplay, 
+  // revertimos el botón a "reproducir" para que no se desfase.
+  audio.play().catch(() => {
+    playing = false;
+    btn.textContent = '🎵';
+    console.log("Autoplay bloqueado por el navegador. Esperando interacción del usuario.");
   });
 })();
 
